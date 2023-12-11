@@ -1,0 +1,86 @@
+.nav-item {
+letter-spacing : .2em;
+font-size :14px;
+text-transform :uppercase;
+}
+.dropdown-1tem
+{
+Letter-spacing : .2em;
+font-size :14px;
+text-transform :uppercase;
+}
+
+body{
+
+font-family: 'Prompt', sans-serif;
+}
+
+.my_footer{
+    margin-top: auto;
+bottom: 0;
+width: 100%;
+background-color:#4E3636;
+height:60px;
+color:white
+
+}
+
+
+
+.my_footer p{
+color:white;
+padding-top:50px;
+font-size:14px;
+}
+.row my_row_c{
+padding-top:15px;
+}
+
+.row my_row_c .mx_auto{
+color:#3F3F3F;
+font-size:12px;
+}
+.my_image{
+width:30%;
+height: auto;}
+
+.my_image1{
+width:300px;
+height: 500px;
+}
+
+.my_title{
+font-size: 16px;
+text_transform:uppercase;
+Letter-spacing: .2em;
+}
+
+.my_bottom_margin{
+margin-bottom:20px
+}
+
+.card-body h4{
+font-size:16px;
+text-transform:uppercase;
+letter-spacing:.2em
+}
+.row my_prod_row_class{
+padding-top:15px;
+padding-bottom:20px
+}
+.my_prod_row_class .mx_auto{
+color:#000;
+font-size:12px;
+text-decoration:none;
+}
+.my_cust_table{
+ min-width:400px;
+ font-size:14px;
+}
+.my_cust_thead{
+ font-weight:normal;
+ text_transform:uppercase;
+ letter-spacing:2em;
+ background-color:#f8f8fa!important;
+}
+

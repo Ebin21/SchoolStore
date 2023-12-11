@@ -1,0 +1,37 @@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Student store</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'sign:home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item"><a href="{% url 'sign:home' %}" class="nav-link">Hello {{user.username}} </a></li>
+        <li class="nav-item"><a class="nav-link"  href="{% url 'sign:logout' %}">Logout</a></li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'sign:index' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item"><a class="nav-link"  href="{% url 'sign:reg' %}">User Registration</a></li>
+        <li class="nav-item"> <a class="nav-link"  href="{% url 'sign:login' %}">Login</a></li>
+        {% endif %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Department</a>
+<ul class="dropdown-menu">
+          {% for dept in depts %}
+          <li >
+          <a class="dropdown-item" href="{{dept.link}}">{{dept.name}}</a>
+          {% endfor %}
+      </li>
+    </ul>
+    </ul>
+  </div>
+</nav>

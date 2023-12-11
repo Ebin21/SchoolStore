@@ -1,0 +1,36 @@
+
+    {% extends 'base.html' %}
+
+    {% block title %}
+        Home
+    {% endblock %}
+    
+    {% block content %}
+    
+    
+        <div class="container">
+    
+            <div class="background">
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+                    <form action="register_student">
+                        <h3>Welcome to Student Store</h3>
+                        <label >Register Your Query</label>
+                        <div class="social">
+                        {% comment %} <div class="go"><a href="{% url 'sign:register_student' %}"><input class="registerbtn" type="submit" value="Click Here"></a></div>  {% endcomment %}
+                        <div >
+                            <input class="registerbtn" type="submit" value="Click Here">
+
+                         
+                            </div>
+    
+                    
+                    
+    
+        
+    
+        </form>
+    </div>  
+    {% endblock %}
+    

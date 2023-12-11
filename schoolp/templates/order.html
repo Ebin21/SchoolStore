@@ -1,0 +1,27 @@
+<html>
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+Success Page
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+                <form>
+                    <label >Order placed  Successful</label>
+                    <div class="social">
+                        <div class="go"><a href="{% url 'sign:logout' %}"> You can Logout </a>
+                        </div> 
+    </form>
+</div>  
+{% endblock %}

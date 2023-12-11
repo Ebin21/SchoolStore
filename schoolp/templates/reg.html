@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+                <form action="reg" method="POST" class="formreg1">
+                    {% csrf_token %}
+
+                    {{ form.as_p}}
+                    <div ><input class="registerbtn" type="submit" value="Register"></div>
+                </form>
+            
+   
+</div>  
+{% endblock %}

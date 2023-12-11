@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+
+    <form method="post" class="formreg2" id="order" course_url="{% url 'sign:load_course' %}" action="register_student">
+          <label for="id_name">Student Order</label>
+        <br>    {% csrf_token %}
+        
+
+  <label for="id_name">Name:</label>
+        <input class="input" type="text" id="id_name" name="name" required>
+      
+        <label for="id_dob">DOB:</label>
+        <input class="input" type="date" id="id_dob" name="dob" required>
+        
+        <label for="id_age">Age:</label>
+        <input class="input" type="number" id="id_age" name="age" required>
+    
+        <label>Gender:</label>
+        
+        <label for="id_gender_male">Male</label>
+        <input class="input" type="radio" id="id_gender_male" name="gender" value="M" required>
+
+        <label for="id_gender_female">Female</label>
+        <input class="input" type="radio" id="id_gender_female" name="gender" value="F" required>
+
+        <label for="id_gender_other">Other</label>
+        <input class="input" type="radio" id="id_gender_other" name="gender" value="O" required>
+
+        <label for="id_phone_number">Phone Number:</label>
+        <input class="input" type="tel" id="id_phone_number" name="phone_number" pattern="[0-9]{10}" required>
+
+        <label for="id_mail_id">Mail ID:</label>
+        <input class="input" type="email" id="id_mail_id" name="mail_id" required>
+
+        <label for="id_address">Address:</label>
+        <textarea id="id_address" name="address" required></textarea>
+
+        <label for="id_department">Department:</label>
+        <select id="id_department" name="department" required>
+            <option value="" disabled selected>Select Department</option>
+{% for dept in department %}
+<option value="{{dept.pk}}">{{dept.name}}</option>
+ {% endfor %}
+        </select>
+
+        <label for="id_course">Courses:</label>
+        <select id="id_course" name="course" required>
+            <option value="" disabled selected>Select Course</option>
+            <!-- Add options dynamically using Django template tags if needed -->
+        </select>
+
+        <label for="id_purpose">Purpose:</label>
+        <select id="id_purpose" name="purpose" required>
+            <option value="" disabled selected>Select Purpose</option>
+            {% for purpose in purposes %}
+            <option value="{{purpose.pk}}">{{purpose.name}}</option>
+             {% endfor %}        </select>
+
+        <label>Materials Provided:</label>
+        {% for material in materials %}
+        <label for="id_material_notebook">{{material.name}}</label>
+        <input type="checkbox" id="id_material_notebook" name="materials_provided" value="{{material.id}}">
+             {% endfor %}           
+        <!-- Add more checkboxes as needed -->        <button type="submit">Register</button></div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#id_department").change(function() {
+
+            const url=$("#order").attr("course_url");
+            const departmenid=$(this).val();
+
+            $.ajax({
+
+                url:url,
+                data:{
+                    'departmen_id': departmenid
+                    
+                },
+                success: function(data){
+                    $("#id_course").html(data);
+                }
+            })
+        })
+    </script>
+    </div>   
+</div>  
+{% endblock %}
